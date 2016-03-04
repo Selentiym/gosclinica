@@ -118,7 +118,18 @@
 			echo CHtml::activeDropDownList(TriggerValues::model(),'id',$triggers, array('name'=>'triggers_array[]','multiple'=>'multiple','allow_single_deselect'=>'true'),array_map('trim', explode (';', $model->trigger_value_id)));
             ?>
 		</div>
-		
+
+        <div>
+            <?php echo $form->labelEx($model,'metro_station'); ?>
+
+            <?php
+            $metro= CHtml::listData(Metro::model()->findAll(), 'id', 'name');
+
+            echo CHtml::activeDropDownList(Metro::model(),'id', $metro,array('name' => 'metro_station_array[]','multiple' => 'multiple'),array_map('trim', explode (';', $model->metro_station)));
+            ?>
+            <?php echo $form->error($model,'metro_station'); ?>
+        </div>
+
         <div>
             <?php echo $form->labelEx($model,'text'); ?>
             <div class="controls">

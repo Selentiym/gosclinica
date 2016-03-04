@@ -216,8 +216,19 @@ class HomeController extends Controller
 		//echo 'art:'.$fl1;
 		//echo 'set:'.$fl2;
 		//echo 'trigs:'.$article_array['article']['trigger_value_id'];
+		/*$clinic = new clinics();
+		$clinic -> filterByTriggerValuesIdArray();*/
 		if (($article_array['article'] -> show_objects)&&(Setting::model()->find()->show_objects)) {
-			$clinics = clinics::model() -> filterByTriggerValuesIdString(clinics::model() -> findAll(array('order' => 'rating DESC')), $article_array['article']['trigger_value_id']);
+			//save the trigger ids
+			$search = array_filter(array_map('trim',explode(';',$article_array['article']['trigger_value_id'])));
+			//save the metro
+			if ($article_array['article'] -> metro_station) {
+				$search ['metro'] = current(array_filter(array_map('trim',explode(';', $article_array['article'] -> metro_station))));
+			}
+			if (!$search) {$search = array();}
+			$clinics = clinics::model() -> userSearch($search, 'rating');
+			$clinics = $clinics['objects'];
+			//$clinics = clinics::model() -> filterByTriggerValuesIdString(clinics::model() -> findAll(array('order' => 'rating DESC')), $article_array['article']['trigger_value_id']);
 		} else {
 			$clinics = array();
 		}

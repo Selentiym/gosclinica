@@ -66,14 +66,14 @@ class BaseModel extends CTModel
 	}
 	
 	/**
-	 * @arg array search a search array that specifies what is being searched
-	 * @arg string order - a field to be ordered by
-	 * @arg integer limit - a limit of objects to be found
+	 * @property array search a search array that specifies what is being searched
+	 * @property string order - a field to be ordered by
+	 * @property integer limit - a limit of objects to be found
 	 * @return an array of model object that fit the search options
 	 */
 	public function userSearch($search,$order='rating',$limit=-1)
 	{
-		//print_r($search);
+		print_r($search);
 		//$objects = $this -> model() -> findAll('rating DESC');
 		if (!$order) {
 			$order='rating';

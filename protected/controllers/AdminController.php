@@ -1097,19 +1097,31 @@ class AdminController extends Controller
         if(isset($_POST['Articles']))
         {
             $model->attributes=$_POST['Articles'];
-            /*if (isset($_POST['menuLevel'])) {
-                if ((int)$_POST['menuLevel'] == 0)
-                    $model->category = 0;
-                $menuLevel = $_POST['menuLevel'];       
-            }*/
-			if (isset($_POST['triggers_array']))
+            /**
+             * Обрабатываем те атрибуты, в которых хранится массив чего-либо.
+             * Массив $array_attr содержит в себе пару <имя атрибута> => <ключ массива с данными>
+             */
+            $array_attr = array(
+                'trigger_value_id' => 'triggers_array',
+                'metro_station' => 'metro_station_array'
+            );
+            foreach ($array_attr as $prop => $postKey) {
+                if (isset($_POST[$postKey])) {
+                    $model->$prop = $_POST[$postKey];
+                    asort(array_filter($model->$prop));
+                    $model->$prop = implode(';', $model->$prop);
+                } else {
+                    $model->$prop = new CDbExpression('NULL');
+                }
+            }
+			/*if (isset($_POST['triggers_array']))
 			{
 				$model -> trigger_value_id = $_POST["triggers_array"];
 				asort(array_filter($model -> trigger_value_id));
 				$model -> trigger_value_id = implode(';',$model -> trigger_value_id);
 			} else {
 				$model -> trigger_value_id = 0;
-			}
+			}*/
             if($model->save())
                 $this->redirect(array('//admin/articles'));
         }
