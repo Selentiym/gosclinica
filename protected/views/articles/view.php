@@ -9,11 +9,11 @@
 		   <?php echo $model->name; ?>
 		</h1>
 	</div>
-	<?php if (empty($children)): ?>
+	<?php //if (empty($children)): ?>
     <div id="article_text_cont">
         <?php echo $model->text; ?>
     </div>
-	<?php else: ?>
+	<?php //else: ?>
 	<?php
 	echo "<ul class='children'>";
 	foreach ($children as $child)
@@ -24,7 +24,7 @@
 	}
 	echo "</ul>";
 	?>
-	<?php endif; ?>
+	<?php //endif; ?>
     <br/>
     <?php
 		//var_dump($clinic);
