@@ -27,7 +27,7 @@
 	<?php endif; ?>
     <br/>
     <?php
-		var_dump($clinic);
+		//var_dump($clinic);
 		if ($clinic !== '')
 		{
 			//листалка для карточки клиник
