@@ -73,7 +73,7 @@ class BaseModel extends CTModel
 	 */
 	public function userSearch($search,$order='rating',$limit=-1)
 	{
-		print_r($search);
+		//print_r($search);
 		/**
 		 * Дело в том, что иногда станции метро - массив, а иногда - только айдишник.
 		 * Реализован более общий случай массива, поэтому нужно предусмотреть переход айдишника к массиву.

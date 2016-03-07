@@ -1,6 +1,7 @@
 <?php  $this->setPageTitle($model->title); ?>
 <?php //echo $model -> title; ?>
 <?php Yii::app()->getClientScript()->registerCssFile(Yii::app()->baseUrl.'/css/articles_list.css'); ?>
+<?php Yii::app()->getClientScript()->registerCssFile(Yii::app()->baseUrl.'/css/objects_list.css'); ?>
 
 <div class="content_block_no_padding">
 	<div id="article_head">

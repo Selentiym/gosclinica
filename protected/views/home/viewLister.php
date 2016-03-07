@@ -5,24 +5,24 @@
 		}
 		if (is_a($clinic, 'clinics'))
 		{
-			echo CHtml::openTag('table', array('class' => 'clinic_card', 'id' => 'clinic_card_table'));
-			echo CHtml::openTag('tbody');
-			echo CHtml::openTag('tr');
-			echo CHtml::openTag('td', array('class' => 'leftNav'));
-			if ($left) {
-				renderArrow('<--', $page - 1);
-			}
-			echo CHtml::closeTag('td');
-			echo CHtml::openTag('td', array('class' => 'clinic_info'));
-			$this -> renderPartial('//home/_single_clinics', array('data' => $clinic));
-			echo CHtml::closeTag('td');
-			echo CHtml::openTag('td', array('class' => 'rightNav'));
-			if ($right) {
-				renderArrow('-->', $page + 1);
-			}
-			echo CHtml::closeTag('td');
-			echo CHtml::closeTag('tr');
-			echo CHtml::closeTag('tbody');
-			echo CHtml::closeTag('table');
+			?>
+			<div class="left_arrow" style="width:4.5%;vertical-align: middle; display:inline-block;">
+				<?php
+					if ($left) {
+						echo "<img style='width:100%; display:inline-block;' src='".Yii::app() -> baseUrl."/images/left_lister.png' onClick='TakePage(".($page - 1).")'/>";
+					}
+				?>
+			</div>
+			<div style="width:90%;vertical-align: middle; display:inline-block;">
+			<?php $this -> renderPartial('//home/_single_clinics', array('data' => $clinic)); ?>
+			</div>
+			<div class="right_arrow" style="width:4.5%;vertical-align: middle;display: inline-block;">
+				<?php
+				if ($right) {
+					echo "<img style='width:100%; display:inline-block;' src='".Yii::app() -> baseUrl."/images/right_lister.png' onClick='TakePage(".($page + 1).")'/>";
+				}
+				?>
+			</div>
+			<?php
 		}
 ?>
