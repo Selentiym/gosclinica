@@ -1050,14 +1050,32 @@ class AdminController extends Controller
 			{
 				$model -> parent_id = 0;
 			}
-			if (isset($_POST["triggers_array"]))
+
+            /**
+             * Обрабатываем те атрибуты, в которых хранится массив чего-либо.
+             * Массив $array_attr содержит в себе пару <имя атрибута> => <ключ массива с данными>
+             */
+            $array_attr = array(
+                'trigger_value_id' => 'triggers_array',
+                'metro_station' => 'metro_station_array'
+            );
+            foreach ($array_attr as $prop => $postKey) {
+                if (isset($_POST[$postKey])) {
+                    $model->$prop = $_POST[$postKey];
+                    asort(array_filter($model->$prop));
+                    $model->$prop = implode(';', $model->$prop);
+                } else {
+                    $model->$prop = new CDbExpression('NULL');
+                }
+            }
+			/*if (isset($_POST["triggers_array"]))
 			{
 				$model -> trigger_value_id = $_POST["triggers_array"];
 				asort(array_filter($model -> trigger_value_id));
 				$model -> trigger_value_id = implode(';',$model -> trigger_value_id);
 			} else {
 				$model -> trigger_value_id = 0;
-			}
+			}*/
 			//print_r($_POST["triggers_array"]);
 			//print_r($_POST);
 			//echo "<br/>asda";

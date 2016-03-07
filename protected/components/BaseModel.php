@@ -74,6 +74,13 @@ class BaseModel extends CTModel
 	public function userSearch($search,$order='rating',$limit=-1)
 	{
 		print_r($search);
+		/**
+		 * Дело в том, что иногда станции метро - массив, а иногда - только айдишник.
+		 * Реализован более общий случай массива, поэтому нужно предусмотреть переход айдишника к массиву.
+		 */
+		if ((isset($search['metro']))&&(!is_array($search['metro']))&&($search['metro'])) {
+			$search['metro'] = array($search['metro']);
+		}
 		//$objects = $this -> model() -> findAll('rating DESC');
 		if (!$order) {
 			$order='rating';
@@ -95,9 +102,11 @@ class BaseModel extends CTModel
 					$filter[] = $option;
 			}*/
 			//если поле не относится к особым, тогда сохраняем условие на него.
-			if (trim($option) != "" and (!in_array($key, $this -> SFields)))
+			if (!in_array($key, $this -> SFields))
 			{
-				$filter[] = $option;
+				if (trim($option) != "") {
+					$filter[] = $option;
+				}
 			}
 		}
 		$count = count($filter);
@@ -194,9 +203,26 @@ class BaseModel extends CTModel
 	{
 		//фильтруем по станциям метро и районам. В родителе, потому что у всех есть эти поля.
 		$ok = true;
-		if ($search['metro'] != 0) {
-			$ok &= (!($search['metro']))||((in_array($search['metro'], array_map('trim', explode(';', $this->metro_station)))));
+
+		if (!empty($search['metro'])) {
+			//Если хотя бы одна станция выбрана, то пробегаем по всем выбранным и смотрим, есть ли хоть какая-нибудь.
+			$check = false;
+			$metroArr = array_filter(array_map('trim', explode(';', $this->metro_station)));
+			//print_r($metroArr);
+			//print_r($search['metro']);
+			foreach($search['metro'] as $id) {
+				if (in_array($id, $metroArr)) {
+					//Если есть, то замечательно.
+					$check = true;
+					break;
+				}
+			}
+			$ok &= $check;
 		}
+
+		/*if ($search['metro'] != 0) {
+			$ok &= (!($search['metro']))||((in_array($search['metro'], array_map('trim', explode(';', $this->metro_station)))));
+		}*/
 		if ($search['district'] != 0) {
 			$ok &= (!($search['district']))||((in_array($search['district'], array_map('trim', explode(';', $this->district)))));
 		}

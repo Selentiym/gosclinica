@@ -223,7 +223,7 @@ class HomeController extends Controller
 			$search = array_filter(array_map('trim',explode(';',$article_array['article']['trigger_value_id'])));
 			//save the metro
 			if ($article_array['article'] -> metro_station) {
-				$search ['metro'] = current(array_filter(array_map('trim',explode(';', $article_array['article'] -> metro_station))));
+				$search ['metro'] = array_filter(array_map('trim',explode(';', $article_array['article'] -> metro_station)));
 			}
 			if (!$search) {$search = array();}
 			$clinics = clinics::model() -> userSearch($search, 'rating');
@@ -338,9 +338,10 @@ class HomeController extends Controller
 		));
 		
 	}
-	/*
-	* Функция для обработки ajax запроса о смене страницы от отображалки карточки клиники под статьей.
-	*/
+	/**
+	 * Функция для обработки ajax запроса о смене страницы от отображалки карточки клиники
+	 *  под статьей.
+	 */
 	public function actionListPage()
 	{
 		if(!Yii::app()->request->isAjaxRequest) throw new CHttpException('Url should be requested via ajax only');
@@ -348,7 +349,16 @@ class HomeController extends Controller
 		{
 			$verbiage = $_GET["verbiage"];
 			$article_array = Articles::model() -> giveArticleContent(trim($verbiage));
-			$clinics = clinics::model() -> filterByTriggerValuesIdString(clinics::model() -> findAll(array('order' => 'rating DESC')), $article_array['article']['trigger_value_id']);
+			//save the trigger ids
+			$search = array_filter(array_map('trim',explode(';',$article_array['article']['trigger_value_id'])));
+			//save the metro
+			if ($article_array['article'] -> metro_station) {
+				$search ['metro'] = array_filter(array_map('trim',explode(';', $article_array['article'] -> metro_station)));
+			}
+			if (!$search) {$search = array();}
+			$clinics = clinics::model() -> userSearch($search, 'rating');
+			$clinics = $clinics['objects'];
+			//$clinics = clinics::model() -> filterByTriggerValuesIdString(clinics::model() -> findAll(array('order' => 'rating DESC')), $article_array['article']['trigger_value_id']);
 			if (!isset($_GET['page']))
 			{
 				$page = 0;
