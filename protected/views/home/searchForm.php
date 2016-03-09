@@ -86,6 +86,7 @@ $("#list_right").click(function(){
 	</div>
 		<div  id="extended_search">
 		<div id="note">Расширенный поиск</div>
+		<input id="objectName" type="text" name="<?php echo $modelName; ?>SearchForm[name]" value="<?php echo $fromPage['name']; ?>" placeholder="Название/имя">
 		<?php $this->widget('application.components.widgets.sitesearch.SiteSearch', array('filterForm' => $filterForm, 'modelName' => $modelName, 'fromPage' => $fromPage)); ?>
 	</div>
 </form>

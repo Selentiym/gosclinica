@@ -8,7 +8,7 @@ class BaseModel extends CTModel
 	/**
 	 * @var array SFields specific fields. Those will not be taken into account in the default search function.
 	 */
-	public $SFields = array('district','metro');//,'speciality');
+	public $SFields = array('district','metro','name');//,'speciality');
 	/**
 	 * @var integer type. Stores id of the object's type.
 	 */
@@ -225,6 +225,13 @@ class BaseModel extends CTModel
 		}*/
 		if ($search['district'] != 0) {
 			$ok &= (!($search['district']))||((in_array($search['district'], array_map('trim', explode(';', $this->district)))));
+		}
+		/**
+		 * Filter by name
+		 */
+		if (strlen($search['name']) > 0) {
+			$ok &= preg_match('/'.$search['name'].'/iu', $this -> name);
+			//$ok &= strpos($this -> name,$search['name']);
 		}
 		return $ok;
 	}

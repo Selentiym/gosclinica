@@ -61,7 +61,7 @@ class Articles extends CTModel
             array('title', 'length', 'max'=>255),
             array('keywords, description', 'length', 'max'=>2000),
 			array('id, name, verbiage, parent_id, level, text, clinic_card, title, keywords, description, show_objects, id_type', 'safe', 'on'=>'search'),
-			array('id_type','safe')
+			array('id_type, clinicName','safe')
 		);
 	}
 
@@ -95,7 +95,8 @@ class Articles extends CTModel
 			'parent_id' => CHtml::encode('Статья-родитель'), //ссылка на статью, в которую вложена данная
 			'level' => CHtml::encode('Уровень статьи'), //уровень в иерархической структуре статей 0 - раздел медицины.
 			'trigger_value_id' => CHtml::encode('Значение триггеров для поиска подходящих клиник'),
-			'metro_station' => CHtml::encode('Станция метро, которые должны быть у клиник. Пока что только одна. В планах добавить в вывод клиники, у которых есть хотя бы одна из выбранных.'),
+			'metro_station' => CHtml::encode('Станции метро, хотя бы одна из которых должна быть у клиники.'),
+			'clinicName' => CHtml::encode('Строка, которая должна присутствовать в имени клиники.'),
 			'id_type' => CHtml::encode('Тип статьи')
 		);
 	}

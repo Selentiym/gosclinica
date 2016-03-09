@@ -21,6 +21,7 @@ section.content #column1 .content_block {
 	background:url('../images/select_arrow.png') no-repeat right #e4f1f9;
 	padding:0;
 	display:inline-block;
+	vertical-align: middle;
 	height:28px;
 	margin:5px 0;
 	margin-right:35px;
@@ -40,6 +41,21 @@ section.content #column1 .content_block {
 	outline:none;
 	height:28px;
 	text-transform:capitalize;
+}
+#objectName {
+	border-radius: 5px;
+	width: 202px;
+	border:1px solid #ccc;
+	overflow: hidden;
+	background: #e4f1f9;
+	padding: 0 5px;
+	display: inline-block;
+	height: 28px;
+	margin: 5px 0;
+	margin-right: 35px;
+	outline: none;
+	box-shadow: none;
+	vertical-align:middle;
 }
 #note {
 	color:#9c9c9c;

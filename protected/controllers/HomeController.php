@@ -225,6 +225,9 @@ class HomeController extends Controller
 			if ($article_array['article'] -> metro_station) {
 				$search ['metro'] = array_filter(array_map('trim',explode(';', $article_array['article'] -> metro_station)));
 			}
+			if ($article_array['article'] -> clinicName) {
+				$search['name'] = $article_array['article'] -> clinicName;
+			}
 			if (!$search) {$search = array();}
 			$clinics = clinics::model() -> userSearch($search, 'rating');
 			$clinics = $clinics['objects'];

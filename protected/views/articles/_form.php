@@ -131,6 +131,12 @@
         </div>
 
         <div>
+            <?php echo $form->labelEx($model,'clinicName'); ?>
+            <?php echo $form->textField($model,'clinicName',array('size'=>60,'maxlength'=>2000)); ?>
+            <?php echo $form->error($model,'clinicName'); ?>
+        </div>
+
+        <div>
             <?php echo $form->labelEx($model,'text'); ?>
             <div class="controls">
 				
