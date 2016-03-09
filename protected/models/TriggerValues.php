@@ -43,7 +43,7 @@ class TriggerValues extends CTModel
 			array('value, verbiage', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, trigger_id, value, verbiage', 'safe', 'on'=>'search'),
+			array('trigger_id, value, value_docs, verbiage', 'safe'),
 		);
 	}
 
@@ -67,7 +67,8 @@ class TriggerValues extends CTModel
 		return array(
 			'id' => CHtml::encode('ID'),
 			'trigger_id' => CHtml::encode('Триггер'),
-			'value' => CHtml::encode('Значение'),
+			'value' => CHtml::encode('Значение при использовании триггера с клиниками'),
+			'value_docs' => CHtml::encode('Значение при использовании триггера с врачами'),
             'verbiage' => CHtml::encode('Человекопонятный URL'),
 		);
 	}
@@ -142,6 +143,9 @@ class TriggerValues extends CTModel
 	{
 		if (!$this->verbiage){
 			$this->verbiage = str2url($this -> value);
+		}
+		if (!$this -> value_docs) {
+			$this ->  value_docs = $this -> value;
 		}
 		return parent::beforeSave();
 	}

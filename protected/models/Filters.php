@@ -159,9 +159,12 @@ class Filters extends CActiveRecord
 	/*
 	 * @return array of specialities available
 	 * single speciality is represented by an array( <speciality_id> => <speciality_value>)
+	 * @property string modelName - the name of the model.
+	 * In order to give a correct trigger value name
 	 */
-	public function giveSpecialities() {
-		return CHtml::listData(Triggers::model() -> giveSpecialityTrigger() -> trigger_values, 'id', 'value');
+	public function giveSpecialities($modelName = 'clinics') {
+		$valueField = $modelName =='doctors' ? 'value_docs' : 'value';
+		return CHtml::listData(Triggers::model() -> giveSpecialityTrigger() -> trigger_values, 'id', $valueField);
 		/*$forms = Filters::model()->findAll();
         $specialitiesCloud = array();
         foreach ($forms as $form) { 

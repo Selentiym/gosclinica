@@ -1289,7 +1289,7 @@ class AdminController extends Controller
 	{
 		$model = new TriggerValues();
 		$trigger_id = $id;
-
+        var_dump($_POST);
 		if(isset($_POST['TriggerValues']))
 		{
 			$model->attributes=$_POST['TriggerValues'];

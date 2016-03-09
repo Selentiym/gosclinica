@@ -28,6 +28,12 @@
             </div>
 
             <div>
+                <?php echo $form->labelEx($model,'value_docs'); ?>
+                <?php echo $form->textField($model,'value_docs',array('size'=>60,'maxlength'=>255)); ?>
+                <?php echo $form->error($model,'value_docs'); ?>
+            </div>
+
+            <div>
                 <?php echo $form->labelEx($model,'verbiage'); ?>
                 <?php echo $form->textField($model,'verbiage',array('size'=>60,'maxlength'=>255)); ?>
                 <?php echo $form->error($model,'verbiage'); ?>

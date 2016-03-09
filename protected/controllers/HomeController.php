@@ -331,7 +331,7 @@ class HomeController extends Controller
 			'filterForm' => $modelName::model() -> giveFilterForm($fromPage),
 			'fromPage' => $fromPage,
 			'description' => $searched['description'],
-			'specialities' => Filters::model() -> giveSpecialities(),
+			'specialities' => Filters::model() -> giveSpecialities($modelName),
 			'page' => $page,
 			'maxPage' => $maxPage,
 			'total' => count($searched['objects'])
