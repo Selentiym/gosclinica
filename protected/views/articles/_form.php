@@ -96,9 +96,22 @@
 				))); //echo CHtml::dropDownList('article_type', 0, $radio_items); ?>
             <?php echo $form->error($model,'level'); ?>
         </div>
-		<div id="parents_block" style="display: none;">
-			<?php echo $form->labelEx($model,'parent_id'); ?>  
-			<?php echo $form->dropDownList($model,'parent_id', array()); ?>
+		<div id="parents_block" <?php if (!$model -> parent_id) { echo 'style="display: none;"'; }?>>
+			<?php echo $form->labelEx($model,'parent_id'); ?>
+            <?php
+            $criteria = new CDbCriteria;
+
+            $criteria -> select = 'id, name';
+            $criteria -> condition = 'level=:lev';
+            $criteria -> order = 'name DESC';
+            $criteria -> params = array(':lev' => $model -> level - 1);
+            $parents = CHtml::listData(Articles::model()->findAll($criteria),'id','name');
+            //var_dump ($parents);
+            //echo $model -> parent_id;
+            ?>
+
+
+			<?php echo $form->dropDownList($model,'parent_id', $parents); ?>
 
 			<?php echo $form->error($model,'parent_id'); ?>  
 		</div>
