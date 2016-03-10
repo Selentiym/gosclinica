@@ -42,6 +42,7 @@ $("#list_right").click(function(){
 							$("#search_metro").attr("name",modelName + "SearchForm[metro]");
 							$("#modelNameCont").val(modelName);
 							$("#searchForm").attr("action","'.Yii::app() -> baseUrl.'/"+modelName);
+							$("#searchForm").submit();
 							//alert($("#searchForm").attr("action"));
 						});
 						$(".adv_search a span").click(function(event){
@@ -62,7 +63,7 @@ $("#list_right").click(function(){
 		<div class="speciality_dropdown select">
 			<div class="image"><span></span></div>
 			<div class="select_cont">
-				<?php $specialities = Filters::model() -> giveSpecialities(); ?>
+				<?php $specialities = Filters::model() -> giveSpecialities($modelName); ?>
 				<?php $val = $_POST["clinicsSearchForm"]["speciality"] ? $_POST["clinicsSearchForm"]["speciality"] : $_POST["doctorsSearchForm"]["speciality"]; ?>
 				<?php echo CHtml::DropDownListChosen2($modelName.'SearchForm[speciality]','search_speciality', $specialities,array('placeholder' => 'Выберите специализацию'),array($val)); ?>
 				

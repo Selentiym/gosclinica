@@ -530,5 +530,66 @@ class HomeController extends Controller
 			'roots' => $roots
 		));
 	}
+
+	/**
+	 * Делаем вместо двух триггеров со специализациями один с двумя названиями.
+	 */
+	/*public function actionRemakeTriggers(){
+		$criteria = new CDbCriteria();
+		$criteria -> compare('trigger_id', 26);
+		//Нашли все значения триггеров, которые нужно перенести.
+		$clinVals = TriggerValues::model() -> findAll($criteria);
+		//Пробегаем по ним и пытаемся найти двойственный триггер
+		$countOk = 0;
+		$count = 0;
+		//Will contain pairs 26-value => 25-value
+		$map = array();
+		foreach($clinVals as $val){
+			$criteria = new CDbCriteria();
+			$criteria -> compare('trigger_id', 25);
+			$criteria -> compare('value',mb_substr($val -> value,0,-3,'UTF-8'),true);
+			$trig = TriggerValues::model() -> find($criteria);
+
+			if ($trig) {
+				$map[$val -> id] = $trig -> id;
+				$countOk ++;
+				echo $val -> value.' - '.$trig -> value.'<br/>';
+			} else {
+				$map[$val->id] = 'nothing';
+				echo $val->value . ' not found<br/>';
+			}
+			$count ++;
+		}
+		echo "found {$countOk}, all {$count}";
+		var_dump($map);
+		echo "<pre>";
+		echo json_encode($map,JSON_PRETTY_PRINT);
+		echo "</pre>";
+	}*/
+	public function actionRemakeTriggers(){
+		$str = file_get_contents(Yii::getPathOfAlias('webroot').'/26to25.json');
+		$arr = json_decode($str, true);
+		//var_dump($arr);
+		//Меняем названия триггеров на нужные.
+		/*foreach($arr as $id26 => $id25) {
+			$trig25 = TriggerValues::model() -> findByPk($id25);
+			$trig26 = TriggerValues::model() -> findByPk($id26);
+			$trig25 -> value = $trig26 -> value;
+			$trig25 -> save();
+		}*/
+		//Получили таблицу соответствия, теперь пробегаем по всем клиникам и меняем триггеры.
+		$clinics = clinics::model() -> findAll();
+		foreach($clinics as $clinic) {
+			$was = TriggerValues::model() -> findAllByPk(explode(';',$clinic -> triggers));
+			$newtr = str_replace(array_keys($arr),array_values($arr), $clinic -> triggers);
+			echo $clinic -> triggers. ' - ' .$newtr.'<br/>';
+			$is = $was = TriggerValues::model() -> findAllByPk(explode(';',$newtr));
+			echo $clinic -> verbiage.'<br/>';
+			echo "was: ".implode(' ', Html::listData($was,'id','value')).'<br/>';
+			echo "is: ".implode(' ', Html::listData($is,'id','value')).'<br/>';
+			$clinic -> triggers = $newtr;
+			$clinic -> save();
+		}
+	}
 }
 ?>
