@@ -102,7 +102,7 @@ class BaseModel extends CTModel
 					$filter[] = $option;
 			}*/
 			//если поле не относится к особым, тогда сохраняем условие на него.
-			if (!in_array($key, $this -> SFields))
+			if ((!in_array($key, $this -> SFields))||(!$key))
 			{
 				if (trim($option) != "") {
 					$filter[] = $option;
