@@ -45,7 +45,7 @@
 
         <div>
             <?php echo $form->labelEx($model,'verbiage'); ?>
-            <?php echo $form->textField($model,'verbiage',array('size'=>20,'maxlength'=>20)); ?>
+            <?php echo $form->textField($model,'verbiage',array('size'=>20,'maxlength'=>512)); ?>
             <?php echo $form->error($model,'verbiage'); ?>
         </div>
 
