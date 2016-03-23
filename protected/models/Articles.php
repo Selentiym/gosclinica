@@ -57,7 +57,7 @@ class Articles extends CTModel
             ),
 			array('parent_id, level, show_objects', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
-			array('verbiage, clinic_card', 'length', 'max'=>20),
+			array('verbiage, clinic_card', 'length', 'max'=>512),
             array('title', 'length', 'max'=>255),
             array('keywords, description', 'length', 'max'=>2000),
 			array('id, name, verbiage, parent_id, level, text, clinic_card, title, keywords, description, show_objects, id_type', 'safe', 'on'=>'search'),
