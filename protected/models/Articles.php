@@ -56,7 +56,7 @@ class Articles extends CTModel
                 'message' => CHtml::encode('Запрещенные символы в поле <{attribute}>'),
             ),
 			array('parent_id, level, show_objects', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>50),
+			array('name', 'length', 'max'=>2000),
 			array('verbiage, clinic_card', 'length', 'max'=>512),
             array('title', 'length', 'max'=>255),
             array('keywords, description', 'length', 'max'=>2000),

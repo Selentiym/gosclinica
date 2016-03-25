@@ -39,7 +39,7 @@
             <?php echo CHtml::hiddenField('fileUpload', Yii::app()->createUrl("admin/fileUpload")); ?>
         <div>
             <?php echo $form->labelEx($model,'name'); ?>
-            <?php echo $form->textField($model,'name',array('size'=>50,'maxlength'=>50)); ?>
+            <?php echo $form->textField($model,'name',array('size'=>50,'maxlength'=>2000)); ?>
             <?php echo $form->error($model,'name'); ?>
         </div>
 
