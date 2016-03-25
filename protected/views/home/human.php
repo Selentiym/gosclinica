@@ -19,6 +19,10 @@
 			var keyAttr = cont.attr("data-keyattr");
 			BlockChosen(keyAttr, cont);
 		});
+		$("#general .point").mouseout(function(){
+			//alert("check!");
+			$(this).parent().children(".mask").hide();
+		});
 		/*$(".point").mouseout(function(){
 			var cont = $(this).parent();
 			cont.children(".mask").hide();
