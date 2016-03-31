@@ -49,13 +49,14 @@
     } else { f(); }
 })(document, window, "yandex_metrika_callbacks");
 </script>
-<noscript><div><img src="//mc.yandex.ru/watch/34545835" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 	
 	
 </head>
 <body>
 	<div id="wrapper">
+		<noscript><div><img src="//mc.yandex.ru/watch/34545835" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
 		<header>
 			<div id="logo_cont"><a href="<?php echo Yii::app() -> baseUrl.'/'; ?>"><div id = "logo"></div></a></div>
 			<div id="header_text">
@@ -91,6 +92,7 @@
 				<input type="submit" value=""/></form>
 			</div>
 			<script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+			</div>
 		</header>
 		<section class="content">
 			<div class="content_block" id="content_head_decor">
@@ -105,7 +107,7 @@
 				<form id="searchForm" method="post" action="<?php echo Yii::app() -> baseUrl.'/'; ?>clinics">
 					<div class="row">
 						<div class="buttons">
-							
+
 								<input name="modelName" id="modelNameCont" type="hidden" value='clinics'/>
 								<?php $modelName = 'clinics'; ?>
 								<div data-modelName='doctors' class="mnchange doctors <?php echo $modelName == 'doctors' ? 'active' : ''; ?>">Доктора</div>
@@ -134,10 +136,10 @@
 								<?php $specialities = Filters::model() -> giveSpecialities(); ?>
 								<?php $val = $_POST["clinicsSearchForm"]["speciality"] ? $_POST["clinicsSearchForm"]["speciality"] : $_POST["doctorsSearchForm"]["speciality"]; ?>
 								<?php echo CHtml::DropDownListChosen2('clinicsSearchForm[speciality]','search_speciality', $specialities,array('placeholder' => 'Выберите специализацию'),array($val)); ?>
-								
+
 							</div>
 						</div>
-						
+
 						<div class="metro_dropdown select">
 							<div class="image"><span></span></div>
 							<div class="select_cont">
@@ -160,7 +162,7 @@
 			</div>
 		</section>
 		<footer>
-			
+
 		</footer>
 	</div>
 </body>
