@@ -48,12 +48,13 @@
     } else { f(); }
 })(document, window, "yandex_metrika_callbacks");
 </script>
-<noscript><div><img src="//mc.yandex.ru/watch/34545835" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+
 	
 	
 </head>
 <body>
+	<noscript><div><img src="//mc.yandex.ru/watch/34545835" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
 	<div id="wrapper">
 		<header>
 			<div id="logo_cont"><a href="<?php echo Yii::app() -> baseUrl.'/'; ?>"><div id = "logo"></div></a></div>
@@ -72,7 +73,7 @@
 				<div id="work_hours">режим работы 8<span class="up">00</span>-21<span class="up">00</span></div>
 			</div>
 			<div id="search">
-<div class="ya-site-form ya-site-form_inited_no right_inner_header_block right big"> <!--onclick="return {'action':'https://yandex.ru/search/site/','arrow':false,'bg':'transparent','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'gosclinica','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':true,'searchid':2250420,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'','input_placeholderColor':'#000000','input_borderColor':'#7f9db9'}">-->
+			<div class="ya-site-form ya-site-form_inited_no right_inner_header_block right big"> <!--onclick="return {'action':'https://yandex.ru/search/site/','arrow':false,'bg':'transparent','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'gosclinica','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':true,'searchid':2250420,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'','input_placeholderColor':'#000000','input_borderColor':'#7f9db9'}">-->
 				<form action="https://yandex.ru/search/site/" method="get" target="_self">
 				<input type="hidden" name="searchid" value="2250420"/>
 				<input type="hidden" name="l10n" value="ru"/>
@@ -81,6 +82,7 @@
 				<input type="submit" value=""/></form>
 			</div>
 			<script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+			</div>
 		</header>
 		<section class="content">
 			<div class="content_block" id="content_head_decor">
