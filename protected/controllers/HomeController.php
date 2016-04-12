@@ -269,21 +269,31 @@ class HomeController extends Controller
 	{
 		/*var_dump($_POST);
 		var_dump($_GET);*/
+
 		//save everything in a cookie to aviod errors while going back in history 
 		if (isset($_POST["doctorsSearchForm"])||isset($_POST["clinicsSearchForm"])) {
+			if ($_GET['page']) {
+				$_POST['page'] = $_GET['page'];
+			}
 			Yii::app()->session->add('post',$_POST);
-			Yii::app()->session->add('get',$_get);
+			Yii::app()->session->add('get',$_GET);
 			Yii::app()->session->remove('doctorssearch');
 			Yii::app()->session->remove('clinicssearch');
 			//Yii::app()->request->cookies['post'] = new CHttpCookie('post', serialize($_POST));
 			//Yii::app()->request->cookies['get'] = new CHttpCookie('get', serialize($_GET));
 			$this -> redirect(Yii::app() -> baseUrl. '/'.$modelName);
-		} else {
+			//echo "Не из сессии";
+		} elseif (!$_GET['clear']) {
+			//echo "Из сессии";
+			$savePage = $_GET['page'];
 			$_GET = Yii::app()->session->get('get');
 			$_POST = Yii::app()->session->get('post');
+			if ($savePage) {
+				$_GET['page'] = $savePage;
+			}
 			//$_POST = unserialize(Yii::app()->request->cookies->contains('post') ? Yii::app()->request->cookies['post']->value : '');
 			//$_GET = unserialize(Yii::app()->request->cookies->contains('get') ? Yii::app()->request->cookies['get']->value : '');
-		}
+		} else {$_GET['clear'] = 1; }
 		$pageSize = BaseModel::PAGE_SIZE;
 		if ($_POST["sortBy"]) {
 			$order = $_POST["sortBy"];
