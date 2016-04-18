@@ -1,7 +1,7 @@
 <div class="single_object">
 	<div class="left_side">
 		<div class="object_image_cont">
-			<img src="<?php echo $data -> giveImageFolderRelativeUrl() . $data -> logo;?>" alt="<?php echo $data->name; ?>"/>
+			<img src="<?php echo $data -> giveLogoUrl();?>" alt="<?php echo $data->name; ?>"/>
 		</div>
 		<div class="reviews">
 			<?php echo CHtml::link('Отзывы', Yii::app()->baseUrl.'/doctors/reviews/'.$data->verbiage); ?>

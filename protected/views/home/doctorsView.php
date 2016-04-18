@@ -70,7 +70,7 @@ $cs -> registerScript('show_hide','
 		</div>
 		<div class="center">
 			<div class="image_cont">
-				<img class="u-logo" src="<?php echo $model -> giveImageFolderRelativeUrl() . $model -> logo;?>" alt="<?php echo $model->name; ?>"/>
+				<img class="u-logo" src="<?php echo $model -> giveLogoUrl();?>" alt="<?php echo $model->name; ?>"/>
 			</div>
 			<h2 class="name object_name"><?php echo $model -> name; ?></h2>
 			<div class="rateit" data-rateit-value="<?php echo $model->rating; ?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div>

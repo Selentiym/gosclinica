@@ -677,4 +677,11 @@ class doctors extends BaseModel
 		}
 		return $rez;
 	}
+	public function giveLogoUrl(){
+		$saved = $this -> giveImageFolderAbsoluteUrl() . $this -> logo;
+		if (!file_exists($saved)) {
+			return Yii::app() -> baseUrl .'/images/noImage.png';
+		}
+		return $this -> giveImageFolderRelativeUrl() . $this -> logo;
+	}
 }
