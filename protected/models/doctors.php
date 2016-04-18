@@ -679,7 +679,7 @@ class doctors extends BaseModel
 	}
 	public function giveLogoUrl(){
 		$saved = $this -> giveImageFolderAbsoluteUrl() . $this -> logo;
-		if (!file_exists($saved)) {
+		if ((!file_exists($saved))||(!$this -> logo)) {
 			return Yii::app() -> baseUrl .'/images/noImage.png';
 		}
 		return $this -> giveImageFolderRelativeUrl() . $this -> logo;
