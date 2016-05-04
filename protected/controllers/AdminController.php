@@ -496,7 +496,10 @@ class AdminController extends Controller
             'model'=>$model,
         ));
     }*/
-	
+    /**
+     * @param clinics|doctors $model
+     * @return bool|void
+     */
 	protected function objectInit($model)
 	{
 		$modelName = get_class($model);
