@@ -618,5 +618,14 @@ class HomeController extends Controller
 			$clinic -> save();
 		}
 	}
+	public function actionHlamnikList() {
+		$articles = Articles::model() -> findAllByAttributes(array('id_type' => ArticleType::model() -> getNumber('hlam'), 'level' => 0));
+		foreach($articles as $article) {
+			//echo "123<br/>";
+			echo CHtml::link($article -> name , Yii::app() -> baseUrl . '/article/'.$article -> verbiage).'<br/>';
+			//$model = new Articles();
+			//$model ->
+		}//*/
+	}
 }
 ?>

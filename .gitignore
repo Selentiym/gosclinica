@@ -18,3 +18,5 @@ date.d
 protected/runtime/**/*
 #
 google309b362307b17097.html
+#igrore all sitemaps
+#sitemap*
