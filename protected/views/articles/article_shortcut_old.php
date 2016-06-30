@@ -6,7 +6,7 @@
 	</a>
 </div>-->
 <li class='main'>
-	<a class="a_shortcut" rel = 'nofollow' href="<?php echo $baseArticleUrl."/".$article['verbiage']; ?>">
+	<a class="a_shortcut" href="<?php echo $baseArticleUrl."/".$article['verbiage']; ?>">
 		<?php echo $article['name'];?><!--<span class="count"><?php if ($article['c'] > 0) echo $article['c']; ?></span>-->
 	</a>
 </li>
