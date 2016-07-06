@@ -1,1 +1,3 @@
+User – agent: *
+Disallow:
 Sitemap: http://gosclinica.ru/sitemap_30_06.xml
