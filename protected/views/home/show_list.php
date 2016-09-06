@@ -2,6 +2,7 @@
 <?php Yii::app()->getClientScript()->registerCssFile(Yii::app()->baseUrl.'/css/objects_list.css'); ?>
 <?php Yii::app()->getClientScript()->registerCssFile(Yii::app()->baseUrl.'/css/rateit.css?' . time()); ?>
 <?php Yii::app()->getClientScript()->registerScriptFile(Yii::app()->baseUrl.'/js/jquery.rateit.min.js?' . time()); ?>
+<?php Yii::app()->getClientScript()->registerScriptFile("https://docdoc.ru/widget/js", CClientScript::POS_BEGIN); ?>
 <?php $cs -> registerScript('Rate','Rate()',CClientScript::POS_READY); ?>
 <?php $cs -> registerScript('Order','
 	$("#sortby a").click(function(e){

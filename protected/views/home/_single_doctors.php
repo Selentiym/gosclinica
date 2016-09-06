@@ -29,8 +29,22 @@
 			Цена за услуги <?php echo current($data -> prices) -> price; ?>
 		</div>
 	</div>
+	<?php
+	$id = "DDWidgetButton_".$data -> verbiage;
+	Yii::app()->getClientScript()->registerScript("turn_on_widget_".$id,"
+ DdWidget({
+  widget: 'Button',
+  template: 'Button_common',
+  pid: '9705',
+  id: '".$id."',
+  container: '".$id."',
+  action: 'LoadWidget',
+  city: 'msk'
+});
+", CClientScript::POS_END); ?>
 	<div class="bottom">
-		<div class="assign"><a href="<?php echo Yii::app() -> baseUrl . '/assign' ?>"><span>Записаться на прием</span></a></div>
+		<!--<div class="assign"><a href="<?php echo Yii::app() -> baseUrl . '/assign' ?>"><span>Записаться на прием</span></a></div>-->
+		<div id="<?php echo $id; ?>"></div>
 		<div class="more_info"><a href="<?php echo Yii::app() -> baseUrl . '/doctors/info/' . $data -> verbiage; ?>"><span>Подробнее..</span></a></div>
 	</div>
 </div>
