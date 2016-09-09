@@ -20,3 +20,8 @@ protected/runtime/**/*
 google309b362307b17097.html
 #igrore all sitemaps
 #sitemap*
+.log
+images/
+images/clinics/
+images/doctors/
+images/.tmb/

@@ -69,7 +69,7 @@
 				</div>
 			</div>
 			<div id="tel_cont">
-				<div id="tel_bold"><!--+7&nbsp;(812)&nbsp;309-9-209--></div>
+				<div id="tel_bold">+7&nbsp;(812)&nbsp;409-93-37</div>
 				<div id="work_hours">режим работы 8<span class="up">00</span>-21<span class="up">00</span></div>
 			</div>
 			<div id="search">
