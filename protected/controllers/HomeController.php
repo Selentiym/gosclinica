@@ -90,7 +90,7 @@ class HomeController extends Controller
 				$mail .= "Время: <strong>{$time}</strong><br/>";
 				$mail .= "Имя: <strong>{$fio}</strong><br/>";
 				$mail .= "Телефон: <strong>{$tel}</strong><br/>";
-				mail("podorozhkin_d@mail.ru", "Заявка на звонок от пользователя {$fio}", $mail, $headers); //*/
+				mail("Podorozhkin.d@gmail.com", "Заявка на звонок от пользователя {$fio}", $mail, $headers); //*/
 				CHtml::redirectAfterInform('Заявка отправлена!', $_POST["from"]);
 				//$this -> redirect($_POST["from"]);
 				//echo "gfc";
