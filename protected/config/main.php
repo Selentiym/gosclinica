@@ -163,10 +163,10 @@ return array(
 		),
 		*/
         'db'=>array(
-            'connectionString' => 'mysql:host=localhost;dbname=cr72344_clinics',
+            'connectionString' => 'mysql:host=localhost;dbname=cq97848_clinics2',
             'tablePrefix' => 'tbl_',
             'emulatePrepare' => true,
-            'username' => 'cr72344_clinics',
+            'username' => 'cq97848_clinics2',
             'password' => 'vfljhljv1986',
             'charset' => 'utf8',
         ),

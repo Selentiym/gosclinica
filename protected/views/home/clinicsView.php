@@ -122,7 +122,9 @@
 });
 ", CClientScript::POS_READY); ?>
 				<div id="<?php echo $id; ?>"></div>
-				<!--<div class="number"><div class="tel_img"></div><div class="tel_number">Запись по телефону: <span class="p-tel"><?php echo $model -> phone; ?></span></div></div>-->
+              <?php if($model -> phone) : ?>
+				<div class="number"><div class="tel_img"></div><div class="tel_number">Запись по телефону: <span class="p-tel"><?php echo $model -> phone; ?></span></div></div>
+<?php endif; ?>
 			</div>
 		</div>
 		<div class="right_side">

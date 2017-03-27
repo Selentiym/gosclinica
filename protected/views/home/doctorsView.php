@@ -144,7 +144,7 @@ $cs -> registerScript('show_hide','
 							echo "<p class='p-adr'>".$addr.'</p>';
 						}
 						if ($model -> phone) {
-							//echo "<p class='p-tel'>"."Запись по телефону: ".$model -> phone.'</p>';
+							echo "<p class='p-tel'>"."Запись по телефону: ".$model -> phone.'</p>';
 						}
 					?>
 				</div>
