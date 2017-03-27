@@ -92,20 +92,20 @@ $cs -> registerScript('show_hide','
 			</div>
 			
 			<div class="assign_cont objects_cont">
-				<!--<div class="assign"><a href="<?php echo  Yii::app() -> baseUrl;?>/assign"><span>Записаться на прием</span></a></div>-->
-				<?php
-				$id = "DDWidgetButton_".$model -> verbiage;
-				Yii::app()->getClientScript()->registerScript("turn_on_widget_".$id,"
- DdWidget({
-  widget: 'Button',
-  template: 'Button_common',
-  pid: '9705',
-  id: '".$id."',
-  container: '".$id."',
-  action: 'LoadWidget',
-  city: 'msk'
-});
-", CClientScript::POS_READY); ?>
+				<div class="assign"><a href="<?php echo  Yii::app() -> baseUrl;?>/assign"><span>Записаться на прием</span></a></div>
+<!--				--><?php
+//				$id = "DDWidgetButton_".$model -> verbiage;
+//				Yii::app()->getClientScript()->registerScript("turn_on_widget_".$id,"
+// DdWidget({
+//  widget: 'Button',
+//  template: 'Button_common',
+//  pid: '9705',
+//  id: '".$id."',
+//  container: '".$id."',
+//  action: 'LoadWidget',
+//  city: 'msk'
+//});
+//", CClientScript::POS_READY); ?>
 				<div id="<?php echo $id; ?>"></div>
 				<?php $price = current($pricelist); ?>
 				<?php if ($price) : ?>

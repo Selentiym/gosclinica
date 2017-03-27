@@ -40,8 +40,8 @@
 });
 ", CClientScript::POS_READY); ?>
 	<div class="bottom">
-		<!--<div class="assign"><a href="<?php echo Yii::app() -> baseUrl . '/assign'; ?>"><span>Записаться на прием</span></a></div>-->
-		<div id="<?php echo $id; ?>"></div>
+		<div class="assign"><a href="<?php echo Yii::app() -> baseUrl . '/assign'; ?>"><span>Записаться на прием</span></a></div>
+<!--		<div id="--><?php //echo $id; ?><!--"></div>-->
 		<div class="more_info"><a href="<?php echo Yii::app() -> baseUrl . '/clinics/info/' . $data -> verbiage; ?>"><span>Подробнее..</span></a></div>
 	</div>
 </div>
