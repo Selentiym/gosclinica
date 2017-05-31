@@ -80,7 +80,7 @@ class doctors extends BaseModel
 			array('verbiage, address, working_days, working_hours, video, title', 'length', 'max'=>255),
 			array('text', 'safe'),
 			array('id, name, verbiage, phone, phone_extra, fax, address, address_extra, site, district, metro_station, working_days, working_hours, services, rating, triggers, map_coordinates, text, audio, video, metros_display, districts_display, triggers_display, title, keywords, description, experience, education, curses', 'safe', 'on'=>'search'),
-			array('clinicsInput, education, curses', 'safe')
+			array('clinicsInput, education, curses, useDocDoc', 'safe')
 		);
 	}
 

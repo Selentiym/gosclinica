@@ -33,6 +33,12 @@
             <?php echo $form->textField($model,'verbiage',array('size'=>60,'maxlength'=>255)); ?>
             <?php echo $form->error($model,'verbiage'); ?>
         </div>
+
+        <div>
+            <?php echo $form->labelEx($model,'useDocDoc'); ?>
+            <?php echo $form->checkBox($model,'useDocDoc',array('size'=>60,'maxlength'=>255)); ?>
+            <?php echo $form->error($model,'useDocDoc'); ?>
+        </div>
         
         <div>
             <?php echo $form->labelEx($model,'title'); ?>

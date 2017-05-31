@@ -5,7 +5,7 @@
 <?php Yii::app()->getClientScript()->registerScriptFile(Yii::app()->baseUrl.'/js/map.js'); ?>
 <?php $cs -> registerScriptFile("https://api-maps.yandex.ru/2.1/?lang=ru_RU"); ?>
 <?php Yii::app()->getClientScript()->registerScriptFile(Yii::app()->baseUrl.'/js/jquery.rateit.min.js?' . time()); ?>
-<?php //Yii::app()->getClientScript()->registerScriptFile("https://docdoc.ru/widget/js", CClientScript::POS_BEGIN); ?>
+<?php Yii::app()->getClientScript()->registerScriptFile("https://docdoc.ru/widget/js", CClientScript::POS_BEGIN); ?>
 <?php $cs -> registerScript('Rate','Rate()',CClientScript::POS_READY); ?>
 <?php $cs -> registerScript('Order','
 	$("#sortby a").click(function(e){
@@ -107,24 +107,13 @@
 				</div>
 			</div>
 			<div class="assign_cont objects_cont">
-				<div class="assign"><a href="<?php echo  Yii::app() -> baseUrl;?>/assign"><span>Записаться на прием</span></a></div>
-<!--				--><?php
-//				$id = "DDWidgetButton_".$data -> verbiage;
-//				Yii::app()->getClientScript()->registerScript("turn_on_widget_".$id,"
-// DdWidget({
-//  widget: 'Button',
-//  template: 'Button_common',
-//  pid: '9705',
-//  id: '".$id."',
-//  container: '".$id."',
-//  action: 'LoadWidget',
-//  city: 'msk'
-//});
-//", CClientScript::POS_READY); ?>
-				<div id="<?php echo $id; ?>"></div>
-              <?php if($model -> phone) : ?>
+
+				<?php
+					RenderAssignButton($model);
+				?>
+				<?php if($model -> phone) : ?>
 				<div class="number"><div class="tel_img"></div><div class="tel_number">Запись по телефону: <span class="p-tel"><?php echo $model -> phone; ?></span></div></div>
-<?php endif; ?>
+				<?php endif; ?>
 			</div>
 		</div>
 		<div class="right_side">
